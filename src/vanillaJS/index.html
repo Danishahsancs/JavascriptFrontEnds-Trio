@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealership Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dealership Management System</h1>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <h2>🔍 Search & Filter</h2>
+            <div class="search-row">
+                <input type="text" id="globalSearch" placeholder="Search dealerships and cars..."
+                    oninput="performGlobalSearch()">
+                <button onclick="loadAllData()">🔄 Refresh All</button>
+                <button class="create-btn" onclick="openDealershipModal()">➕ Add Dealership</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-section">
+            <h2>🏪 Dealerships & Their Cars</h2>
+            <div id="dealershipsContainer">
+                Loading dealerships...
+            </div>
+        </div>
+    </div>
+
+    <!-- Dealership Modal -->
+    <div id="dealershipModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDealershipModal()">&times;</span>
+            <h2 id="modalTitle">Add New Dealership</h2>
+            <div class="form-row">
+                <input type="hidden" id="modalDealershipId">
+                <input type="text" id="modalDealershipName" placeholder="Dealership Name">
+                <input type="text" id="modalDealershipLocation" placeholder="Location">
+                <input type="text" id="modalDealershipPhone" placeholder="Phone Number">
+            </div>
+            <div class="form-row">
+                <button class="create-btn" onclick="saveDealership()">💾 Save</button>
+                <button onclick="closeDealershipModal()">❌ Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Car Modal -->
+    <div id="carModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCarModal()">&times;</span>
+            <h2 id="carModalTitle">Add New Car</h2>
+            <div class="form-row">
+                <input type="hidden" id="modalCarId">
+                <input type="text" id="modalCarMake" placeholder="Make">
+                <input type="text" id="modalCarModel" placeholder="Model">
+                <input type="number" id="modalCarYear" placeholder="Year">
+                <input type="text" id="modalCarVin" placeholder="VIN Number">
+                <select id="modalCarDealership">
+                    <option value="">Select Dealership</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <button class="create-btn" onclick="saveCar()">💾 Save</button>
+                <button onclick="closeCarModal()">❌ Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detail modal-->
+    <div id="detailModal"  class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDetailModal()">&times;</span>
+            <h2 id="detailModalTitle">Detail Section</h2>
+            <div id="detailModalDetailSection">
+                loading details...
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
