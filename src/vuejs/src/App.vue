@@ -1,30 +1,57 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import dealerships from './components/DealershipCard.vue'
+import { ref, onMounted } from "vue"
+const baseUrl = "http://localhost:8080/api";
+import axios from "axios"
+
+const Dealerships = ref([])
+const cars = ref([])
+const expandedDealerships = ref(new Set())
+const searchTerms = ref("")
+
+async function loadAllData() {
+  try {
+    const [dealershipsRes, carsRes] = await Promise.all([
+      axios.get(baseUrl + "/dealership"),
+      axios.get(baseUrl + "/car")
+    ])
+    dealerships.value = dealershipsRes.data
+    cars.value = carsRes.data
+  } catch (err) {
+    console.error("Error loading data:", err)
+  }
+}
+
+
+onMounted(() => {
+  loadAllData()
+})
+
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
-</template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+  <body>
+    <div class="container">
+      <H1>Dealership API with Vue</H1>
+      <div class="search-section">
+        <H2>Search & Add Dealerships</H2>
+        <div class="search-row">
+          <input type="text" placeholder="Search through dealerships & Cars">
+          <button>refresh</button>
+          <button class="create-btn">add Dealership</button>
+        </div>
+      </div>
+
+      <div class="main-section">
+        <h2>Dealerships & Their Cars</h2>
+        <div id="dealershipsContainer">
+          <dealerships :dealerships="dealerships" :cars="cars" />
+        </div>
+      </div>
+    </div>
+
+
+
+  </body>
+</template>
