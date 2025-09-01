@@ -234,7 +234,7 @@ onMounted(() => {
 
 <template>
   <div class="container">
-    <h1>Dealership Management System</h1>
+    <h1>Dealership Management System Vue</h1>
     
     <div class="search-section">
       <h2>🔍 Search & Filter</h2>
