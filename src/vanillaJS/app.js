@@ -1,4 +1,4 @@
-
+const baseUrl = "http://localhost:8080/api"
 let allDealerships = [];
 let allCars = [];
 let expandedDealerships = new Set();
