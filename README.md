@@ -1,4 +1,8 @@
-# Week 8: JavaScript Front-End Development
+<img width="1440" height="900" alt="Screen Shot 2025-09-02 at 11 32 30 AM" src="https://github.com/user-attachments/assets/58a0e060-b748-4a8d-b998-eaba4cf3b76d" />
+<img width="1440" height="900" alt="Screen Shot 2025-09-02 at 11 32 48 AM" src="https://github.com/user-attachments/assets/f55afebe-2b6e-498c-a191-bb78ff5057bd" />
+<img width="1440" height="900" alt="Screen Shot 2025-09-02 at 11 32 38 AM" src="https://github.com/user-attachments/assets/61e9ee24-48ee-401a-ad51-b9b8fe304048" />
+
+ Week 8: JavaScript Front-End Development
 
 ## Assignment Overview
 
